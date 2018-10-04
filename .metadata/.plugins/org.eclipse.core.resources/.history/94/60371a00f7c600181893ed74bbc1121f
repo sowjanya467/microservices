@@ -1,0 +1,22 @@
+package com.jobpost.model;
+
+import java.io.Serializable;
+
+import org.springframework.data.annotation.Id;
+
+public class JobPost implements Serializable {
+	@Id
+	private String _id;
+	private String job_role;
+	private String job_title;
+	private String job_type;
+	private String job_description;
+	private String experience_required;
+    private int max_salary;
+    private int min_salary;
+    
+
+
+
+
+}

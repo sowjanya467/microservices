@@ -1,0 +1,8 @@
+package com.jobpost.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface JobSkillsRepository {
+
+}

@@ -1,0 +1,32 @@
+{
+	"createjobpost": {
+		"request": {
+			"url": "/note/createnote",
+			"headers": {
+				"userId": [
+					"20180914163256"
+				]
+			},
+			"body": {
+				"experience_required": "string",
+				"jobTitle": "string",
+				"job_description": "string",
+				"job_role": "string",
+				"job_type": "string",
+				"max_salary": 0,
+				"min_salary": 0
+			},
+			"method": "POST"
+		},
+		"response": {
+			"status": "OK",
+			"headers": {
+				
+			},
+			"body": {
+				"status": 200,
+				"message": "created note Successfully !!"
+			}
+		}
+	}
+}

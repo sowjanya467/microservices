@@ -1,0 +1,16 @@
+package com.jobpost.jsontest;
+
+import java.util.Map;
+
+import org.springframework.http.HttpHeaders;
+
+public class JsonRequest {
+
+	private String url;
+
+	private HttpHeaders headers;
+
+	private Map<String, Object> body;
+
+	private String method;
+}

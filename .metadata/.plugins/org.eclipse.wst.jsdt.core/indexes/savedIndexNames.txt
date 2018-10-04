@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/bridgelabz/jayanta/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3029563034.index
+6535081.index
+197165490.index
+1778865652.index
+1117711932.index
+3656602636.index

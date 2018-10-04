@@ -1,0 +1,30 @@
+{
+	"createjobpost": {
+		"request": {
+			"url": "/jobapi/postjob",
+			"headers": {
+				
+			},
+			"body": {
+				"experience_required": "3",
+				"jobTitle": "HR",
+				"job_description": "recruiting",
+				"job_role": "manager",
+				"job_type": "full time",
+				"max_salary": 33000,
+				"min_salary": 44000
+			},
+			"method": "POST"
+		},
+		"response": {
+			"status": "OK",
+			"headers": {
+				
+			},
+			"body": {
+				"status": 200,
+				"message": "job posted successfully!!"
+			}
+		}
+	}
+}

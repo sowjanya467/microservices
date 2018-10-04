@@ -1,0 +1,58 @@
+{
+	"createjobpost": {
+		"request": {
+			"url": "/jobapi/postjob",
+			"headers": {
+				
+			},
+			"body": {
+				"experience_required": "3",
+				"jobTitle": "HR MANAGER",
+				"job_description": "recruiting",
+				"job_role": "manager",
+				"job_type": "full time",
+				"max_salary": 33000,
+				"min_salary": 44000
+			},
+			"method": "POST"
+		},
+		"response": {
+			"status": "CREATED",
+			"headers": {
+				
+			},
+			"body": {
+				"status": 201,
+				"message": "job posted successfully!!"
+			}
+		}
+	},
+	"createjobpostsad": {
+		"request": {
+			"url": "/jobapi/postjob",
+			"headers": {
+				
+			},
+			"body": {
+				"experience_required": "3",
+				"jobTitle": "HR MANAGER",
+				"job_description": "recruiting",
+				"job_role": "manager",
+				"job_type": "full time",
+				"max_salary": 33000,
+				"min_salary": 44000
+			},
+			"method": "POST"
+		},
+		"response": {
+			"status": "CREATED",
+			"headers": {
+				
+			},
+			"body": {
+				"status": 400,
+  "message": "job with this title already present"
+			}
+		}
+	}
+}

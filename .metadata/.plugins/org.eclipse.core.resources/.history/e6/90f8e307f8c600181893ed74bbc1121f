@@ -1,0 +1,9 @@
+package com.jobpost.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.jobpost.model.JobPost;
+
+public interface JobPostRepository extends MongoRepository<JobPost, String> {
+
+}

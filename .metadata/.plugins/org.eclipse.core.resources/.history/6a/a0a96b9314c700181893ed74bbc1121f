@@ -1,0 +1,15 @@
+package com.jobpost.jsontest;
+
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+
+public class JsonResponse {
+
+	private HttpStatus status;
+
+	private Map<String, Object> headers;
+
+	private Map<String, Object> body;
+
+}

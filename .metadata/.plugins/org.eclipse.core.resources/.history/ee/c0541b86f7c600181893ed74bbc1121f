@@ -1,0 +1,6 @@
+package com.jobpost.service;
+
+public interface JobPostService {
+
+	
+}

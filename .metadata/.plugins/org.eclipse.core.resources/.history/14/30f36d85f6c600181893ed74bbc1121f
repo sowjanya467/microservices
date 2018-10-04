@@ -1,0 +1,7 @@
+package com.jobpost.model;
+
+import java.io.Serializable;
+
+public class JobPost implements Serializable {
+
+}

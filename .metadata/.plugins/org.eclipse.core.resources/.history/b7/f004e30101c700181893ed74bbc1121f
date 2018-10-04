@@ -1,0 +1,5 @@
+package com.jobpost.repository;
+
+public interface JobSkillsRepository {
+
+}

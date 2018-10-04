@@ -1,0 +1,34 @@
+{
+	"createnote": {
+		"request": {
+			"url": "/note/createnote",
+			"headers": {
+			"userId":["20180914163256"]
+				
+		},
+			"body": {
+				
+            "archive": false,
+            "content": "string https://www.google.com https://www.facebook.com",
+            "image": [
+             ""
+              ],
+            "pin": true,
+            "title": "testing"
+
+			},
+			"method": "POST"
+		},
+		"response": {
+			"status": "OK",
+			"headers": {
+				
+			},
+			"body": {
+				"status": 200,
+				"message": "created note Successfully !!"
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,9 @@
+package com.jobpost.service;
+
+import com.jobpost.model.JobPost;
+
+public interface JobPostService {
+
+	public void postJob(JobPost postModel);
+	
+}

@@ -1,0 +1,30 @@
+{
+	"createjobpost": {
+		"request": {
+			"url": "/note/createnote",
+			"headers": {
+				
+			},
+			"body": {
+				"experience_required": "3",
+				"jobTitle": "string",
+				"job_description": "string",
+				"job_role": "string",
+				"job_type": "string",
+				"max_salary": 0,
+				"min_salary": 0
+			},
+			"method": "POST"
+		},
+		"response": {
+			"status": "OK",
+			"headers": {
+				
+			},
+			"body": {
+				"status": 200,
+				"message": "created note Successfully !!"
+			}
+		}
+	}
+}

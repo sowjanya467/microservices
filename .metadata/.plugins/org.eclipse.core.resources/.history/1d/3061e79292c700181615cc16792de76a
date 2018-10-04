@@ -1,0 +1,20 @@
+package com.jobpost.dto;
+
+import java.util.List;
+
+import io.swagger.annotations.ApiModelProperty;
+
+public class JobPostDto {
+
+	private String job_role;
+	private String jobTitle;
+	private String job_type;
+	private String job_description;
+	private String experience_required;
+	private int max_salary;
+	private int min_salary;
+	@ApiModelProperty(hidden=true)
+	private String updatedAt;
+	
+
+}

@@ -1,0 +1,19 @@
+package com.jobpost.dto;
+
+import java.util.List;
+
+public class JobPostDto {
+
+	private String job_role;
+	private String jobTitle;
+	private String job_type;
+	private String job_description;
+	private String experience_required;
+	private int max_salary;
+	private int min_salary;
+	private String updatedAt;
+	//private List<JobSkills> jobSkills;
+	private List<String> jobskills;
+	private List<String> jobLocations;
+
+}

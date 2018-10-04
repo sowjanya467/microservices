@@ -1,0 +1,117 @@
+package com.jobpost.service;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jobpost.dto.JobLocations;
+import com.jobpost.dto.JobSkills;
+import com.jobpost.exceptions.JobPostingException;
+import com.jobpost.model.JobPost;
+import com.jobpost.repository.JobLocationRepository;
+import com.jobpost.repository.JobPostRepository;
+import com.jobpost.repository.JobSkillsRepository;
+import com.jobpost.utility.PreConditions;
+
+@Service
+public class JobPostServiceImplementation implements JobPostService {
+
+	@Autowired
+	private JobPostRepository repository;
+	@Autowired
+	private JobSkillsRepository skillsRepo;
+	@Autowired
+	private JobLocationRepository locationRepo;
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+	LocalDateTime now = LocalDateTime.now();
+	public static final Logger logger = LoggerFactory.getLogger(JobPostServiceImplementation.class);
+
+	@Override
+	public void postJob(JobPost postModel) throws JobPostingException {
+		Optional<JobPost> job = repository.findByJobTitle(postModel.getJobTitle());
+		PreConditions.isPresentInDb(!job.isPresent(), "job with this title already present");
+		if(postModel.getJobSkills()!=null) {
+			
+		}
+		postModel.setUpdatedAt(dtf.format(now));
+		repository.save(postModel);
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void postSkills(JobSkills jobSkills) throws JobPostingException {
+
+		Optional<JobSkills> skills = skillsRepo.findBySkillName(jobSkills.getSkillName());
+		PreConditions.isPresentInDb(!skills.isPresent(), "This skill is already present!!");
+		jobSkills.setSkillUpdatedAt(dtf.format(now));
+		skillsRepo.save(jobSkills);
+
+	}
+	@Override
+	public void postLocations(JobLocations jobLocations) throws JobPostingException {
+
+		Optional<JobLocations> location = locationRepo.findByLocationName(jobLocations.getLocationName());
+		PreConditions.isPresentInDb(!location.isPresent(), "This location is already present!!");
+		jobLocations.setLocationUpdatedAt(dtf.format(now));
+		locationRepo.save(jobLocations);
+	}
+
+	@Override
+	public void addLocations(String locationId, String jobId) throws JobPostingException {
+
+		Optional<JobPost> jobPost = repository.findById(jobId);
+		PreConditions.isPresentInDb(jobPost.isPresent(), "job does not exist!!");
+		if (jobPost.get().getJobLocations() == null) {
+			List<JobLocations> newLocationList = new ArrayList<>();
+			jobPost.get().setJobLocations(newLocationList);
+		}
+		Optional<JobLocations> locationFound = locationRepo.findById(locationId);
+		JobLocations loc = new JobLocations();
+
+		for (int i = 0; i < jobPost.get().getJobLocations().size(); i++) {
+			if (locationId.equals(jobPost.get().getJobLocations().get(i).getId())) {
+
+				throw new JobPostingException("LOCATION IS ALREADY PRESENT");
+			}
+		}
+		loc.setId(locationFound.get().getId());
+		loc.setLocationName(locationFound.get().getLocationName());
+		loc.setLocationUpdatedAt(dtf.format(now));
+		jobPost.get().getJobLocations().add(loc);
+		repository.save(jobPost.get());
+
+	}
+	@Override
+	public void addSkills(String skillId, String jobId) throws JobPostingException {
+
+		Optional<JobPost> jobPost = repository.findById(jobId);
+		PreConditions.isPresentInDb(jobPost.isPresent(), "job does not exist!!");
+		if(jobPost.get().getJobSkills()==null) {
+			List<JobSkills> skills=new ArrayList<>();
+			jobPost.get().setJobSkills(skills);
+		}
+		Optional<JobSkills> skillFound=skillsRepo.findById(skillId);
+	    JobSkills newSkill=new JobSkills();
+	    for(int i=0;i<jobPost.get().getJobSkills().size();i++) {
+	    	if(skillId.equals(jobPost.get().getJobSkills().get(i).getId())) {
+	    		throw new JobPostingException("skill is already present");
+	    	}
+	    }
+	    newSkill.setId(skillFound.get().getId());
+	    newSkill.setSkillName(skillFound.get().getSkillName());
+	    newSkill.setSkillUpdatedAt(dtf.format(now));
+	    jobPost.get().getJobSkills().add(newSkill);
+	    repository.save(jobPost.get());
+	}
+}

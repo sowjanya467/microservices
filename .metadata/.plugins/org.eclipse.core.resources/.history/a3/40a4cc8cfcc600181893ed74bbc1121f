@@ -1,0 +1,15 @@
+package com.jobpost.dto;
+
+import org.springframework.data.annotation.Id;
+
+import io.swagger.annotations.ApiModelProperty;
+
+public class JobLocations {
+
+	@Id
+	@ApiModelProperty(hidden = true)
+	private String id;
+	private String locationName;
+	private String locationUpdatedAt;
+
+}

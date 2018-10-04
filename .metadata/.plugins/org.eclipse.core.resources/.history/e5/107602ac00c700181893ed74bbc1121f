@@ -1,0 +1,10 @@
+package com.jobpost.service;
+
+import com.jobpost.exceptions.JobPostingException;
+import com.jobpost.model.JobPost;
+
+public interface JobPostService {
+
+	public void postJob(JobPost postModel) throws JobPostingException;
+	
+}

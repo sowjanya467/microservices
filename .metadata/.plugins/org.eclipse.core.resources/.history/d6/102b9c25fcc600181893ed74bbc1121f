@@ -1,0 +1,9 @@
+package com.jobpost.dto;
+
+import java.io.Serializable;
+
+public class JobSkills implements Serializable
+{
+	
+
+}
